@@ -31,10 +31,11 @@ type HostManager struct {
   hosts = map[string]*Host{}
 }
 
-func (h *HostManager) register(name string) Host {
+func (h *HostManager) register(name string) string {
   hostId = uuid.New()
-  host = Host{id: hostId, name: name}
-  h.hosts[hostId] = &host
   fmt.Printl(hostId)
-  return host
+  //host = Host{id: hostId, name: name}
+  //h.hosts[hostId] = &host
+  //fmt.Printl(hostId)
+  return hostId
 }
