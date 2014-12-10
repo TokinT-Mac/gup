@@ -28,7 +28,7 @@ type Manager interface {
 }
 
 type HostManager struct {
-  hosts = map[string]*Host{}
+  hosts map[string]*Host
 }
 
 func (h *HostManager) register(name string) (host Host) {

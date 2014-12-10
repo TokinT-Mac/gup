@@ -4,7 +4,10 @@ import "testing"
 import "fmt"
 
 func  TestManager(t *testing.T) {
-  manager := new(HostManager)
+  manager := HostManager{
+    hosts: map[string]*Host{},
+        },
+  }
   resp := manager.register("test")
   fmt.Printl(resp.id)
 }
