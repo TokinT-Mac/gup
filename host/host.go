@@ -38,7 +38,9 @@ func (h *HostManager) register(name string) (host Host) {
   return
 }
 
-func (h *HostManager) getHost(id string) Host {
+func (h HostManager) getHost(id string) Host {
   host := h.hosts[id]
   return host
 }
+
+//func ()

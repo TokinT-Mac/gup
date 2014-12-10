@@ -15,3 +15,15 @@ func  TestManager(t *testing.T) {
     t.Fail()
   }
 }
+
+func BenchmarkHostManager(b *testing.B) {
+  manager := HostManager{
+    hosts: map[string]Host{},
+        }
+  resp := manager.register("test")
+  id := resp.id
+  b.ResetTimer()
+  for i := 0; i < b.N; i++ {
+    manager.getHost(id)
+  }
+}
