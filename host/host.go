@@ -2,7 +2,7 @@ package host
 
 import "time"
 import "code.google.com/p/go-uuid/uuid"
-import "fmt"
+//import "fmt"
 
 type Host struct {
   id string
@@ -23,17 +23,22 @@ type Failure struct {
 
 type Manager interface {
   register(string) string
-  //checkin(string) string
-  //list() map[string]Host
+  checkin(string) string
+  list() map[string]Host
 }
 
 type HostManager struct {
-  hosts map[string]*Host
+  hosts map[string]Host
 }
 
 func (h *HostManager) register(name string) (host Host) {
-  hostId = uuid.New()
+  hostId := uuid.New()
   host = Host{id: hostId, name: name}
-  h.hosts[hostId] = &host
+  h.hosts[hostId] = host
   return
+}
+
+func (h *HostManager) getHost(id string) Host {
+  host := h.hosts[id]
+  return host
 }
