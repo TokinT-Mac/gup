@@ -34,7 +34,7 @@ type HostManager struct {
 func (h *HostManager) register(name string) host Host {
   hostId = uuid.New()
   host := Host{id: hostId, name: name}
-  h.hosts[hostId] = *host
+  h.hosts[hostId] = &host
   fmt.Printl(hostId)
   return
 }
